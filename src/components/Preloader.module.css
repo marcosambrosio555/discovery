@@ -1,0 +1,49 @@
+.preloader {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .8rem;
+    background-color: var(--background-color);
+    color: var(--zinc-color-01);
+    z-index: 5;
+    /* background-color: red; */
+}
+
+.preloader svg {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    animation: animationBounce 1s linear;
+    animation-delay: .8s;
+}
+
+@keyframes animationBounce {
+    0% {
+        transform: scale(0.5);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.2);
+    }
+
+    60% {
+        transform: scale(.8);
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

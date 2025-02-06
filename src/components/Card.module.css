@@ -1,0 +1,52 @@
+.card {
+    color: var(--zinc-color-02);
+    transition: .4s;
+}
+
+.card .cardImage img {
+    width: 100%;
+    aspect-ratio: 9/14;
+    object-fit: cover;
+}
+
+.card .cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding-block: .8rem .4rem;
+}
+
+.card .cardBody .title,
+.card .cardBody .originalName {
+    font-weight: bold;
+    color: var(--zinc-color-01);
+    font-synthesis: weight;
+    font-size: 1.4rem;
+    transition: .4s;
+}
+
+.card:hover .cardBody .title,
+.card:hover .cardBody .originalName {
+    color: var(--main-color);
+}
+
+.card .cardBody span {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    color: var(--zinc-color-01);
+    font-size: 1.2rem;
+}
+
+.card .cardBody svg {
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
+.card .cardBody span.rate svg {
+    color: #d7d70e;
+}
+
+.card .cardBody span.releaseDate svg {
+    color: var(--main-color);
+}

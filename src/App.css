@@ -1,0 +1,121 @@
+:root {
+  --background-color: #011627;
+  --main-color: #5d72ff;
+  --main-color-dark: #4859c7;
+  --zinc-color-01: #f5f5f5;
+  --zinc-color-02: #ccc;
+  --zinc-color-03: #525252;
+  --zinc-color-04: #292a2c;
+  --zinc-color-05: #171b1e;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--zinc-color-01);
+}
+
+button {
+  cursor: pointer;
+  transition: .4s;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: 540px;
+}
+
+.container-sm {
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: 414px;
+}
+
+.btn {
+  height: 3.2rem;
+  padding-inline: 2rem;
+  color: var(--zinc-color-01);
+  background-color: var(--main-color);
+  border: none;
+  border-radius: .4rem;
+  margin-top: .6rem;
+  display: block;
+  line-height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  gap: .8rem;
+}
+
+.btn:hover {
+  background-color: var(--main-color-dark);
+}
+
+
+
+main {
+  padding-top: 2rem;
+  padding-bottom: 8rem;
+}
+
+.header {
+  padding-block: 1.6rem;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--zinc-color-03);
+}
+
+.header h1 a {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--zinc-color-01);
+}
+
+.header h1 a svg {
+  font-size: 2.4rem;
+  color: var(--main-color);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-block: .4rem;
+  border-top: 1px solid var(--zinc-color-03);
+  background-color: var(--background-color);
+}
+
+.footer nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: .4rem;
+  border-radius: .4rem;
+  min-width: 8rem;
+  color: var(--zinc-color-02);
+  gap: .4rem;
+}
+
+.footer nav a:hover {
+  transform: scale(1.05);
+  color: var(--main-color);
+}
+
+.footer nav a svg {
+  font-size: 2rem;
+  color: var(--zinc-color-01);
+}
+
+.footer nav a:hover svg {
+  color: var(--main-color);
+}

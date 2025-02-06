@@ -1,0 +1,59 @@
+.cardImage {
+    /* aspect-ratio: 1/1;
+    background-color: var(--zinc-color-03);
+    border-radius: .8rem; */
+}
+
+.cardImage img {
+    width: 100%;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding-block: .8rem .4rem;
+    margin-top: .8rem;
+}
+
+a {
+    color: var(--zinc-color-02);
+}
+
+.cardBody .title {
+    font-weight: bold;
+    color: var(--zinc-color-01);
+    font-synthesis: weight;
+    font-size: 1.8rem;
+}
+
+.cardBody>div {
+    display: flex;
+    /* flex-direction: column; */
+    gap: .4rem;
+}
+
+.cardBody span {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    color: var(--zinc-color-01);
+    font-size: 1.4rem;
+}
+
+.cardBody svg {
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
+.cardBody .rate svg {
+    color: rgb(215, 215, 14);
+}
+
+.cardBody span.duration svg {
+    color: var(--main-color);
+}
+
+.overview {
+    line-height: 2rem;
+}

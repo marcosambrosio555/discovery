@@ -1,0 +1,33 @@
+.loading {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+
+.spinner {
+    height: 10rem;
+    width: 10rem;
+    border: 1rem solid var(--zinc-color-04);
+    border-radius: 50%;
+    border-top-color: var(--main-color);
+    animation: animationSpinner 1s infinite linear;
+    animation-direction: reverse;
+}
+
+@keyframes animationSpinner {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}

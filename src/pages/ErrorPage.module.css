@@ -1,0 +1,21 @@
+.errorPage {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorPage div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 360px;
+    gap: 1.6rem;
+}
+
+.errorPage p {
+    color: var(--zinc-color-02);
+}
