@@ -1,5 +1,5 @@
 const apiKey = import.meta.env.VITE_API_KEY
-const apiUrl = import.meta.env.VITE_API_URL_SERIES
+const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 import styles from './Series.module.css'
@@ -18,9 +18,9 @@ export function Series() {
 
         async function fetchData() {
 
-            const responsePopular = await fetch(`${apiUrl}popular?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseTopRated = await fetch(`${apiUrl}top_rated?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseOnTheAir = await fetch(`${apiUrl}on_the_air?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responsePopular = await fetch(`${apiUrl}tv/popular?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responseTopRated = await fetch(`${apiUrl}tv/top_rated?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responseOnTheAir = await fetch(`${apiUrl}tv/on_the_air?api_key=${apiKey}&language=pt-BR&page=1`)
 
             const dataPopular = await responsePopular.json()
             const dataTopRated = await responseTopRated.json()

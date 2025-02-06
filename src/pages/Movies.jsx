@@ -1,5 +1,5 @@
 const apiKey = import.meta.env.VITE_API_KEY
-const apiUrl = import.meta.env.VITE_API_URL_MOVIES
+const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 import styles from './Movies.module.css'
@@ -18,11 +18,10 @@ export function Movies() {
     useEffect(() => {
 
         async function fetchData() {
-
-            const responsePopular = await fetch(`${apiUrl}popular?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseTopRated = await fetch(`${apiUrl}top_rated?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseNowPlaying = await fetch(`${apiUrl}now_playing?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseUpcoming = await fetch(`${apiUrl}upcoming?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responsePopular = await fetch(`${apiUrl}movie/popular?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responseTopRated = await fetch(`${apiUrl}movie/top_rated?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responseNowPlaying = await fetch(`${apiUrl}movie/now_playing?api_key=${apiKey}&language=pt-BR&page=1`)
+            const responseUpcoming = await fetch(`${apiUrl}movie/upcoming?api_key=${apiKey}&language=pt-BR&page=1`)
 
             const dataPopular = await responsePopular.json()
             const dataTopRated = await responseTopRated.json()

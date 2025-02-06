@@ -1,8 +1,5 @@
 const apiKey = import.meta.env.VITE_API_KEY
-const apiUrlSearchMovie = import.meta.env.VITE_API_SEARCH_MOVIE
-const apiUrlSearchSerie = import.meta.env.VITE_API_SEARCH_SERIE
-const apiUrlSearchPerson = import.meta.env.VITE_API_SEARCH_PERSON
-
+const apiUrl = import.meta.env.VITE_API_URL
 
 import styles from './Search.module.css'
 
@@ -32,13 +29,13 @@ export function Search() {
         e.preventDefault()
         setLoading(true)
 
-        const responseMovies = await fetch(`${apiUrlSearchMovie}?query=${input}&api_key=${apiKey}`)
+        const responseMovies = await fetch(`${apiUrl}search/movie?query=${input}&api_key=${apiKey}`)
         const dataMovies = await responseMovies.json()
 
-        const responseSeries = await fetch(`${apiUrlSearchSerie}?query=${input}&api_key=${apiKey}`)
+        const responseSeries = await fetch(`${apiUrl}search/tv?query=${input}&api_key=${apiKey}`)
         const dataSeries = await responseSeries.json()
 
-        const responsePerson = await fetch(`${apiUrlSearchPerson}?query=${input}&api_key=${apiKey}`)
+        const responsePerson = await fetch(`${apiUrl}search/person?query=${input}&api_key=${apiKey}`)
         const dataPerson = await responsePerson.json()
 
         setMovies(dataMovies.results)

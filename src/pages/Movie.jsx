@@ -1,5 +1,5 @@
 const apiKey = import.meta.env.VITE_API_KEY
-const apiUrl = import.meta.env.VITE_API_URL_MOVIES
+const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 
@@ -19,8 +19,7 @@ export function Movie() {
 
     useEffect(() => {
         async function fetchData() {
-
-            const response = await fetch(`${apiUrl}${id}?api_key=${apiKey}&language=pt-BR`)
+            const response = await fetch(`${apiUrl}movie/${id}?api_key=${apiKey}&language=pt-BR`)
             const data = await response.json()
             console.log(data)
             setLoading(false)
