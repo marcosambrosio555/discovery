@@ -6,8 +6,7 @@ const apiImage = import.meta.env.VITE_API_IMAGE
 import styles from './Serie.module.css'
 
 import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router-dom"
-// import { BiAnalyse, BiMoney, BiStar, BiTimer } from 'react-icons/bi'
+import { Link, useSearchParams } from "react-router-dom"
 import { Loading } from '../components/Loading'
 
 export function Serie() {
@@ -31,22 +30,11 @@ export function Serie() {
         fetchData()
     }, [id])
 
-    // function convertValue(value) {
-    //     return value.toLocaleString("en-US", {
-    //         style: "currency",
-    //         currency: "USD"
-    //     })
-    // }
-
     function listGenres(genres) {
         return genres.map(item => (
             <span key={item.id}>{item.name}</span>
         ))
     }
-
-    // function convertRealeseDate(value) {
-    //     return value.split("-")[0]
-    // }
 
     return (
         <>
@@ -80,6 +68,22 @@ export function Serie() {
                                     <span>Genero : </span>
                                     <span>{listGenres(serie.genres)}</span>
                                 </div>
+                                <div className={styles.createdBy}>
+                                    <span>Criado por : </span>
+                                    <span>
+                                        {
+                                            serie.created_by.map((person) => (
+                                                <Link key={person.id} to={`/person/${person.id}`}>
+                                                    {person.name}
+                                                </Link>
+                                            ))
+                                        }
+                                    </span>
+                                </div>
+                                <div className={styles.originCountry}>
+                                    <span>País de origem : </span>
+                                    <span>{serie.origin_country}</span>
+                                </div>
                                 <div className={styles.runtime}>
                                     <span>Duração : </span>
                                     <span>{serie.runtime} minutos</span>
@@ -97,12 +101,12 @@ export function Serie() {
                                     <span>{serie.production} Lion Gate</span>
                                 </div>
                                 <div className={styles.releaseDate}>
-                                    <span>Primeiro episódio no ar</span>
-                                    <span>{serie.release_date}</span>
+                                    <span>Primeiro episódio no ar : </span>
+                                    <span>{serie.first_air_date}</span>
                                 </div>
                                 <div className={styles.releaseDate}>
-                                    <span>Ultimo episódio no ar</span>
-                                    <span>{serie.release_date}</span>
+                                    <span>Ultimo episódio no ar : </span>
+                                    <span>{serie.last_air_date}</span>
                                 </div>
                                 <div className={styles.overview}>
                                     <span>{serie.overview}</span>

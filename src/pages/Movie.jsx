@@ -7,7 +7,6 @@ import styles from './Movie.module.css'
 
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-// import { BiAnalyse, BiMoney, BiStar, BiTimer } from 'react-icons/bi'
 import { Loading } from '../components/Loading'
 
 export function Movie() {
@@ -36,15 +35,16 @@ export function Movie() {
             currency: "USD"
         })
     }
+
     function listGenres(genres) {
         return genres.map(item => (
             <span key={item.id}>{item.name}</span>
         ))
     }
 
-    function convertRealeseDate(value) {
-        return value.split("-")[0]
-    }
+    // function convertRealeseDate(value) {
+    //     return value.split("-")[0]
+    // }
 
     return (
         <>
@@ -94,9 +94,19 @@ export function Movie() {
                                     <span>Produtora</span>
                                     <span>{movie.production} Lion Gate</span>
                                 </div>
+                                <div className={styles.production}>
+                                    <span>País de origem : </span>
+                                    {
+                                        movie.production_countries.map(country => (
+                                            <span key={country.id}>
+                                                {country.name}
+                                            </span>
+                                        ))
+                                    }
+                                </div>
                                 <div className={styles.releaseDate}>
                                     <span>Data de lançamento</span>
-                                    <span>{convertRealeseDate(movie.release_date)}</span>
+                                    <span>{movie.release_date}</span>
                                 </div>
                                 <div className={styles.overview}>
                                     <span>{movie.overview}</span>
