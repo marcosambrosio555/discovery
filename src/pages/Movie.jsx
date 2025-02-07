@@ -22,12 +22,11 @@ export function Movie() {
             const data = await response.json()
             console.log(data)
             setLoading(false)
-
             setMovie(data)
-
         }
         fetchData()
     }, [id])
+
 
     function convertValue(value) {
         return value.toLocaleString("en-US", {
@@ -36,15 +35,6 @@ export function Movie() {
         })
     }
 
-    function listGenres(genres) {
-        return genres.map(item => (
-            <span key={item.id}>{item.name}</span>
-        ))
-    }
-
-    // function convertRealeseDate(value) {
-    //     return value.split("-")[0]
-    // }
 
     return (
         <>
@@ -76,7 +66,20 @@ export function Movie() {
                                 </div>
                                 <div className={styles.genres}>
                                     <span>Genero : </span>
-                                    <span>{listGenres(movie.genres)}</span>
+                                    <div>
+                                        <span>Terror</span>
+                                        <span>Comedia</span>
+                                        <span>Ficçaõ</span>
+                                        <span>Aventura</span>
+                                        <span>Acção</span>
+                                    </div>
+                                    <div>
+                                        {
+                                            movie.genres.map(item => (
+                                                <span key={item.id}>{item.name}</span>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                                 <div className={styles.runtime}>
                                     <span>Duração : </span>
@@ -92,17 +95,20 @@ export function Movie() {
                                 </div>
                                 <div className={styles.production}>
                                     <span>Produtora</span>
-                                    <span>{movie.production} Lion Gate</span>
+                                    <span>{movie.production}</span>
                                 </div>
-                                <div className={styles.production}>
+                                <div className={styles.country}>
                                     <span>País de origem : </span>
-                                    {
-                                        movie.production_countries.map(country => (
-                                            <span key={country.id}>
-                                                {country.name}
-                                            </span>
-                                        ))
-                                    }
+                                    <div>
+                                        {
+                                            movie.production_countries.map(country => (
+                                                <span key={country.id}>
+                                                    {country.name}
+                                                </span>
+                                            ))
+                                        }
+                                    </div>
+
                                 </div>
                                 <div className={styles.releaseDate}>
                                     <span>Data de lançamento</span>

@@ -30,12 +30,6 @@ export function Serie() {
         fetchData()
     }, [id])
 
-    function listGenres(genres) {
-        return genres.map(item => (
-            <span key={item.id}>{item.name}</span>
-        ))
-    }
-
     return (
         <>
             {loading && <Loading />}
@@ -66,11 +60,17 @@ export function Serie() {
                                 </div>
                                 <div className={styles.genres}>
                                     <span>Genero : </span>
-                                    <span>{listGenres(serie.genres)}</span>
+                                    <div>
+                                        {
+                                            serie.genres.map(item => (
+                                                <span key={item.id}>{item.name}</span>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                                 <div className={styles.createdBy}>
                                     <span>Criado por : </span>
-                                    <span>
+                                    <div>
                                         {
                                             serie.created_by.map((person) => (
                                                 <Link key={person.id} to={`/person/${person.id}`}>
@@ -78,7 +78,7 @@ export function Serie() {
                                                 </Link>
                                             ))
                                         }
-                                    </span>
+                                    </div>
                                 </div>
                                 <div className={styles.originCountry}>
                                     <span>País de origem : </span>
@@ -98,7 +98,7 @@ export function Serie() {
                                 </div>
                                 <div className={styles.production}>
                                     <span>Produtora</span>
-                                    <span>{serie.production} Lion Gate</span>
+                                    <span>{serie.production}</span>
                                 </div>
                                 <div className={styles.releaseDate}>
                                     <span>Primeiro episódio no ar : </span>
