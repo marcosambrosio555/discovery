@@ -121,10 +121,10 @@ export function Search() {
                                             <div className={styles.column}>
                                                 {
                                                     persons.map(person => (
-                                                        <CardSerie
-                                                            props={person}
-                                                            key={person.id}
-                                                        />
+                                                        <div key={person.id}>
+                                                            <span>Nome : </span>
+                                                            <span>{person.name}</span>
+                                                        </div>
                                                     ))
                                                 }
                                             </div>
