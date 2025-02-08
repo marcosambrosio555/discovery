@@ -3,7 +3,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 
-import styles from './Movie.module.css'
+import styles from './css/SinglePage.module.css'
 
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
@@ -67,13 +67,6 @@ export function Movie() {
                                 <div className={styles.genres}>
                                     <span>Genero : </span>
                                     <div>
-                                        <span>Terror</span>
-                                        <span>Comedia</span>
-                                        <span>Ficçaõ</span>
-                                        <span>Aventura</span>
-                                        <span>Acção</span>
-                                    </div>
-                                    <div>
                                         {
                                             movie.genres.map(item => (
                                                 <span key={item.id}>{item.name}</span>
@@ -86,15 +79,15 @@ export function Movie() {
                                     <span>{movie.runtime} minutos</span>
                                 </div>
                                 <div className={styles.budget}>
-                                    <span>Orçamento</span>
+                                    <span>Orçamento : </span>
                                     <span>{convertValue(movie.budget)}</span>
                                 </div>
                                 <div className={styles.revenue}>
-                                    <span>Receita</span>
+                                    <span>Receita : </span>
                                     <span>{convertValue(movie.revenue)}</span>
                                 </div>
                                 <div className={styles.production}>
-                                    <span>Produtora</span>
+                                    <span>Produtora : </span>
                                     <span>{movie.production}</span>
                                 </div>
                                 <div className={styles.country}>
@@ -102,7 +95,7 @@ export function Movie() {
                                     <div>
                                         {
                                             movie.production_countries.map(country => (
-                                                <span key={country.id}>
+                                                <span key={country.iso_3166_1}>
                                                     {country.name}
                                                 </span>
                                             ))
@@ -111,7 +104,7 @@ export function Movie() {
 
                                 </div>
                                 <div className={styles.releaseDate}>
-                                    <span>Data de lançamento</span>
+                                    <span>Data de lançamento : </span>
                                     <span>{movie.release_date}</span>
                                 </div>
                                 <div className={styles.overview}>

@@ -1,7 +1,7 @@
 const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 
-import styles from './Search.module.css'
+import styles from './css/Search.module.css'
 
 import { useState } from "react"
 import { BiSearch } from "react-icons/bi"
@@ -9,6 +9,7 @@ import { BiSearch } from "react-icons/bi"
 import { CardMovie } from '../components/CardMovie.jsx'
 import { CardSerie } from '../components/CardSerie.jsx'
 import { Loading } from '../components/Loading.jsx'
+import { CardPerson } from '../components/CardPerson.jsx'
 
 export function Search() {
 
@@ -121,10 +122,12 @@ export function Search() {
                                             <div className={styles.column}>
                                                 {
                                                     persons.map(person => (
-                                                        <div key={person.id}>
-                                                            <span>Nome : </span>
-                                                            <span>{person.name}</span>
-                                                        </div>
+                                                        <CardPerson
+                                                            props={person}
+                                                            image={person.profile_path}
+                                                            key={person.id}
+                                                            known_for={person.known_for}
+                                                        />
                                                     ))
                                                 }
                                             </div>
@@ -138,7 +141,7 @@ export function Search() {
                 {
                     searchResult && movies.length === 0 && series.length === 0 ? (
                         <div>
-                            Nenhum resultado!
+                            Nenhum resultado encontrado!
                         </div>
                     ) : (
                         <div></div>
@@ -146,7 +149,6 @@ export function Search() {
                 }
 
             </div>
-
         </div>
     )
 }

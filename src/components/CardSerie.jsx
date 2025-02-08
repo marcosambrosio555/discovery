@@ -1,5 +1,6 @@
 const apiImage = import.meta.env.VITE_API_IMAGE
 
+import { BiImage } from 'react-icons/bi'
 import styles from './Card.module.css'
 
 import { Link } from 'react-router-dom'
@@ -15,7 +16,15 @@ export function CardSerie({ props, image }) {
     return (
         <Link to={`/serie?q=${id}`} className={styles.card}>
             <div className={styles.cardImage}>
-                <img src={apiImage + image} alt={original_name} />
+                {
+                    image ? (
+                        <img src={apiImage + image} alt={original_name} />
+                    ) : (
+                        <div className={styles.imageFake}>
+                            <BiImage />
+                        </div>
+                    )
+                }
             </div>
             <div className={styles.cardBody}>
                 <span className={styles.originalName}>{original_name}</span>

@@ -8,7 +8,8 @@ import {
   BiMoviePlay,
   BiSearch,
   BiTv,
-  BiFilm
+  BiFilm,
+  BiHome
 } from 'react-icons/bi'
 
 import { Preloader } from './components/Preloader'
@@ -46,6 +47,10 @@ function App() {
         <div className="container">
           <nav>
             <Link to={"/"}>
+              <BiHome />
+              inicio
+            </Link>
+            <Link to={"/movies"}>
               <BiFilm />
               filmes
             </Link>

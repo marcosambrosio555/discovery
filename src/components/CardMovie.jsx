@@ -1,5 +1,6 @@
 const apiImage = import.meta.env.VITE_API_IMAGE
 
+import { BiImage } from 'react-icons/bi'
 import styles from './Card.module.css'
 
 import { Link } from 'react-router-dom'
@@ -15,7 +16,15 @@ export function CardMovie({ props, image }) {
     return (
         <Link to={`/movie?q=${id}`} className={styles.card}>
             <div className={styles.cardImage}>
-                <img src={apiImage + image} alt={title} />
+                {
+                    image ? (
+                        <img src={apiImage + image} alt={title} />
+                    ) : (
+                        <div className={styles.imageFake}>
+                            <BiImage />
+                        </div>
+                    )
+                }
             </div>
             <div className={styles.cardBody}>
                 <span className={styles.title}>{title}</span>

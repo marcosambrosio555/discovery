@@ -2,7 +2,7 @@ const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
-import styles from './Series.module.css'
+import styles from './css/MoviesSeries.module.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 

@@ -2,7 +2,7 @@ const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
-import styles from './Movies.module.css'
+import styles from './css/MoviesSeries.module.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -18,6 +18,7 @@ export function Movies() {
     useEffect(() => {
 
         async function fetchData() {
+
             const responsePopular = await fetch(`${apiUrl}movie/popular?api_key=${apiKey}&language=pt-BR&page=1`)
             const responseTopRated = await fetch(`${apiUrl}movie/top_rated?api_key=${apiKey}&language=pt-BR&page=1`)
             const responseNowPlaying = await fetch(`${apiUrl}movie/now_playing?api_key=${apiKey}&language=pt-BR&page=1`)

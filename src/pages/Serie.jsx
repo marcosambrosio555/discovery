@@ -3,7 +3,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 
-import styles from './Serie.module.css'
+import styles from './css/SinglePage.module.css'
 
 import { useEffect, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"

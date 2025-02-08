@@ -17,7 +17,8 @@
 }
 
 .card .cardBody .title,
-.card .cardBody .originalName {
+.card .cardBody .originalName,
+.card .cardBody .name {
     font-weight: bold;
     color: var(--zinc-color-01);
     font-synthesis: weight;
@@ -26,7 +27,8 @@
 }
 
 .card:hover .cardBody .title,
-.card:hover .cardBody .originalName {
+.card:hover .cardBody .originalName,
+.card:hover .cardBody .name {
     color: var(--main-color);
 }
 
@@ -49,4 +51,14 @@
 
 .card .cardBody span.releaseDate svg {
     color: var(--main-color);
+}
+
+.card .imageFake {
+    width: 100%;
+    aspect-ratio: 9/14;
+    border: 1px solid var(--zinc-color-03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
 }

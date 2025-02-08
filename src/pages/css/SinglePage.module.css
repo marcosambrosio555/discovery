@@ -32,9 +32,12 @@ a {
     flex-wrap: wrap;
     align-items: center;
     gap: .8rem;
-    color: var(--zinc-color-01);
     font-size: 1.4rem;
 }
+
+/* .cardBody span:last-child {
+    color: var(--zinc-color-02);
+} */
 
 .cardBody div>div {
     display: flex;
@@ -43,6 +46,7 @@ a {
 }
 
 
-.cardBody span.overview {
-    line-height: 2rem;
+.cardBody .overview {
+    line-height: 2.4rem;
+    color: var(--zinc-color-02);
 }
