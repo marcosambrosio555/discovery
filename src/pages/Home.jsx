@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { CardMovie } from '../components/CardMovie'
 import { CardSerie } from '../components/CardSerie'
+import { CardRow } from '../components/CardRow'
 
 export function Home() {
 
@@ -54,14 +55,11 @@ export function Home() {
                         trendingMovieDay && (
                             trendingMovieDay.map(movie => (
                                 (
-                                    <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
-                                        <div className="">
-                                            <img src={apiImage + movie.backdrop_path} alt={movie.title} />
-                                        </div>
-                                        <div className="">
-                                            <span className="">{movie.title}</span>
-                                        </div>
-                                    </Link>
+                                    <CardRow
+                                        key={movie.id}
+                                        props={movie}
+                                        image={movie.backdrop_path}
+                                    />
                                 )
                             ))
                         )

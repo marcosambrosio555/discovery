@@ -35,10 +35,6 @@ a {
     font-size: 1.4rem;
 }
 
-/* .cardBody span:last-child {
-    color: var(--zinc-color-02);
-} */
-
 .cardBody div>div {
     display: flex;
     flex-wrap: wrap;
