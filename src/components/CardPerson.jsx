@@ -1,7 +1,7 @@
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 import { BiImage } from 'react-icons/bi'
-import styles from './Card.module.css'
+import styles from './css/Card.module.css'
 
 import { Link } from 'react-router-dom'
 

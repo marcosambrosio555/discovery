@@ -2,12 +2,13 @@ const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
-import { CardMovie } from '../components/CardMovie'
-import { CardSerie } from '../components/CardSerie'
-import styles from './css/SinglePage.module.css'
-
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
+
+import styles from './css/SinglePage.module.css'
+
+import { CardMovie } from '../components/CardMovie'
+import { CardSerie } from '../components/CardSerie'
 import { Loading } from '../components/Loading'
 import { BiImage } from 'react-icons/bi'
 
@@ -99,7 +100,6 @@ export function Person() {
                                                                         key={project.id}
                                                                     />
                                                                 )
-
                                                             ))
                                                         }
                                                         {

@@ -5,8 +5,8 @@ const apiImage = import.meta.env.VITE_API_IMAGE
 import styles from './css/Home.module.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-
 import { CardMovie } from '../components/CardMovie'
+import { CardSerie } from '../components/CardSerie'
 
 export function Home() {
 
@@ -34,10 +34,10 @@ export function Home() {
             setTrendingSerieDay(dataTrendingSerieDay.results)
             setTrendingSerieWeek(dataTrendingSerieWeek.results)
 
-            console.log(dataTrendingMovieDay)
-            console.log(dataTrendingMovieWeek)
-            console.log(dataTrendingSerieDay)
-            console.log(dataTrendingSerieWeek)
+            console.log(dataTrendingMovieDay.results)
+            console.log(dataTrendingMovieWeek.results)
+            console.log(dataTrendingSerieDay.results)
+            console.log(dataTrendingSerieWeek.results)
 
         }
 
@@ -45,76 +45,82 @@ export function Home() {
     }, [])
 
     return (
-        <div className={styles.movies}>
+        <div className={styles.home}>
 
             <section>
                 <h2>Filmes em tendência (Últimas 24 horas)</h2>
-                <div className={styles.row}>
+                <div className="row">
                     {
-                        trendingMovieDay.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
-                                    <img src={apiImage + movie.backdrop_path} alt={movie.title} />
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.title}>{movie.title}</span>
-                                </div>
-                            </Link>
-                        ))
+                        trendingMovieDay && (
+                            trendingMovieDay.map(movie => (
+                                (
+                                    <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
+                                        <div className="">
+                                            <img src={apiImage + movie.backdrop_path} alt={movie.title} />
+                                        </div>
+                                        <div className="">
+                                            <span className="">{movie.title}</span>
+                                        </div>
+                                    </Link>
+                                )
+                            ))
+                        )
                     }
                 </div>
             </section>
 
             <section>
                 <h2>Filmes em tendência (Últimos 7 dias)</h2>
-                <div className={styles.column}>
+                <div className="column">
                     {
-                        trendingMovieWeek.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
-                                    <img src={apiImage + movie.backdrop_path} alt={movie.title} />
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.title}>{movie.title}</span>
-                                </div>
-                            </Link>
-                        ))
+                        trendingMovieWeek && (
+                            trendingMovieWeek.map(movie => (
+                                <CardMovie
+                                    props={movie}
+                                    // image={movie.backdrop_path}
+                                    image={movie.poster_path}
+                                    key={movie.id}
+                                />
+                            ))
+                        )
                     }
                 </div>
             </section>
 
             <section>
                 <h2>Séries em tendência (Últimas 24 horas)</h2>
-                <div className={styles.row}>
+                <div className="row">
                     {
-                        trendingSerieDay.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
-                                    <img src={apiImage + movie.backdrop_path} alt={movie.title} />
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.title}>{movie.title}</span>
-                                </div>
-                            </Link>
-                        ))
+                        trendingSerieDay && (
+                            trendingSerieDay.map(movie => (
+                                <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
+                                    <div className="">
+                                        <img src={apiImage + movie.backdrop_path} alt={movie.title} />
+                                    </div>
+                                    <div className="">
+                                        <span className="">{movie.title}</span>
+                                    </div>
+                                </Link>
+                            ))
+                        )
                     }
                 </div>
             </section>
 
             <section>
                 <h2>Séries em tendência (Últimos 7 dias)</h2>
-                <div className={styles.column}>
+                <div className="column">
                     {
-                        trendingSerieWeek.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
-                                    <img src={apiImage + movie.backdrop_path} alt={movie.title} />
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.title}>{movie.title}</span>
-                                </div>
-                            </Link>
-                        ))
+                        trendingSerieDay && (
+                            trendingSerieWeek.map(serie => (
+                                <CardSerie
+                                    props={serie}
+                                    // image={serie.backdrop_path}
+                                    image={serie.poster_path}
+                                    key={serie.id}
+                                />
+                            ))
+                        )
                     }
                 </div>
             </section>

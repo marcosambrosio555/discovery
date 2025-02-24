@@ -1,4 +1,4 @@
-import styles from './Preloader.module.css'
+import styles from './css/Preloader.module.css'
 
 import { BiMoviePlay } from 'react-icons/bi'
 

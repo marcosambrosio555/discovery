@@ -21,7 +21,7 @@ button {
 
 .container {
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.6rem;
   max-width: 540px;
 }
 
@@ -101,9 +101,10 @@ main {
   font-size: 1.2rem;
   padding: .4rem;
   border-radius: .4rem;
-  min-width: 8rem;
+  min-width: 6rem;
   color: var(--zinc-color-02);
   gap: .4rem;
+  background-color: red;
 }
 
 .footer nav a:hover {
@@ -118,4 +119,59 @@ main {
 
 .footer nav a:hover svg {
   color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+/* List */
+
+
+section {
+  margin-bottom: 3.2rem;
+}
+
+section h2 {
+  margin-bottom: 1.6rem;
+  font-weight: bold;
+}
+
+.title {
+  color: var(--zinc-color-01);
+  font-size: 1.6rem;
+}
+
+.row {
+  display: flex;
+  overflow-x: scroll;
+  gap: 1.2rem;
+}
+
+.row a {
+  flex: 1 0 200px;
+}
+
+.cardImage img {
+  max-width: 24rem;
+  border-radius: .4rem;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  padding-block: .8rem .4rem;
+}
+
+.column {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-direction: column;
+  gap: 1.2rem;
 }

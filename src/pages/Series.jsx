@@ -2,7 +2,6 @@ const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
-import styles from './css/MoviesSeries.module.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -36,19 +35,19 @@ export function Series() {
     }, [])
 
     return (
-        <div className={styles.series}>
+        <div className="">
 
-            <section className={styles.now_playing}>
+            <section className="">
                 <h2>Séries em cartaz</h2>
-                <div className={styles.row}>
+                <div className="row">
                     {
                         onTheAir.map(serie => (
-                            <Link to={`/serie?q=${serie.id}`} key={serie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
+                            <Link to={`/serie?q=${serie.id}`} key={serie.id} className="">
+                                <div className="">
                                     <img src={apiImage + serie.backdrop_path} alt={serie.name} />
                                 </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.name}>{serie.name}</span>
+                                <div className="">
+                                    <span className="">{serie.name}</span>
                                 </div>
                             </Link>
                         ))
@@ -56,9 +55,9 @@ export function Series() {
                 </div>
             </section>
 
-            <section className={styles.top_rated}>
+            <section className="">
                 <h2>Séries mais bem avaliadas</h2>
-                <div className={styles.column}>
+                <div className="column">
                     {
                         topRated.map(serie => (
                             <CardSerie
@@ -71,9 +70,9 @@ export function Series() {
                 </div>
             </section>
 
-            <section className={styles.popular}>
+            <section className="">
                 <h2>Séries populares</h2>
-                <div className={styles.column}>
+                <div className="column">
                     {
                         popular.map(serie => (
                             <CardSerie

@@ -2,7 +2,6 @@ const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
-import styles from './css/MoviesSeries.module.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -40,19 +39,19 @@ export function Movies() {
     }, [])
 
     return (
-        <div className={styles.movies}>
+        <div className="">
 
-            <section className={styles.now_playing}>
+            <section className="">
                 <h2>Filmes em cartaz</h2>
-                <div className={styles.row}>
+                <div className="row">
                     {
                         nowPlaying.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
+                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
+                                <div className="">
                                     <img src={apiImage + movie.backdrop_path} alt={movie.title} />
                                 </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.title}>{movie.title}</span>
+                                <div className="">
+                                    <span className="">{movie.title}</span>
                                 </div>
                             </Link>
                         ))
@@ -60,9 +59,9 @@ export function Movies() {
                 </div>
             </section>
 
-            <section className={styles.top_rated}>
+            <section className="">
                 <h2>Filmes mais bem avaliados</h2>
-                <div className={styles.column}>
+                <div className="column">
                     {
                         topRated.map(movie => (
                             <CardMovie
@@ -75,17 +74,17 @@ export function Movies() {
                 </div>
             </section>
 
-            <section className={styles.upcoming}>
+            <section className="">
                 <h2>Próximos lançamentos</h2>
-                <div className={styles.row}>
+                <div className="row">
                     {
                         upcoming.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className={styles.card}>
-                                <div className={styles.cardImage}>
+                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
+                                <div className="">
                                     <img src={apiImage + movie.backdrop_path} alt={movie.title} />
                                 </div>
-                                <div className={styles.cardBody}>
-                                    <span className={styles.title}>{movie.title}</span>
+                                <div className="">
+                                    <span className="">{movie.title}</span>
                                 </div>
                             </Link>
                         ))
@@ -93,9 +92,9 @@ export function Movies() {
                 </div>
             </section>
 
-            <section className={styles.popular}>
+            <section className="">
                 <h2>Filmes populares</h2>
-                <div className={styles.column}>
+                <div className="column">
                     {
                         popular.map(movie => (
                             <CardMovie
