@@ -22,6 +22,7 @@ export function Person() {
 
     useEffect(() => {
         async function fetchData() {
+
             const response = await fetch(`${apiUrl}person/${id}?api_key=${apiKey}&language=pt-BR`)
             const data = await response.json()
             const responsePersons = await fetch(`${apiUrl}search/person?query=${data.name}&api_key=${apiKey}`)
@@ -32,12 +33,6 @@ export function Person() {
             })
 
             setPersonDataSearch(personFinded[0])
-
-            console.log(data)
-            console.log(dataPersons)
-            console.log(personFinded[0])
-            console.log(personDataSearch)
-            console.log(personDataSearch.known_for)
 
             setLoading(false)
             setPerson(data)

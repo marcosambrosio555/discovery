@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import { CardMovie } from '../components/CardMovie'
+import { getData } from '../services/api'
+import { Image } from '../components/Image'
 
 export function Movies() {
 
@@ -18,20 +20,17 @@ export function Movies() {
 
         async function fetchData() {
 
-            const responsePopular = await fetch(`${apiUrl}movie/popular?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseTopRated = await fetch(`${apiUrl}movie/top_rated?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseNowPlaying = await fetch(`${apiUrl}movie/now_playing?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseUpcoming = await fetch(`${apiUrl}movie/upcoming?api_key=${apiKey}&language=pt-BR&page=1`)
+            const language = "&language=pt-BR&page=1"
 
-            const dataPopular = await responsePopular.json()
-            const dataTopRated = await responseTopRated.json()
-            const dataNowPlaying = await responseNowPlaying.json()
-            const dataUpcoming = await responseUpcoming.json()
+            const popular = await getData(`movie/popular?api_key=${apiKey}${language}`)
+            const topRated = await getData(`movie/top_rated?api_key=${apiKey}${language}`)
+            const nowPlaying = await getData(`movie/now_playing?api_key=${apiKey}${language}`)
+            const upcoming = await getData(`movie/upcoming?api_key=${apiKey}${language}`)
 
-            setPopular(dataPopular.results)
-            setTopRated(dataTopRated.results)
-            SetNowPlaying(dataNowPlaying.results)
-            setUpcoming(dataUpcoming.results)
+            setPopular(popular)
+            setTopRated(topRated)
+            SetNowPlaying(nowPlaying)
+            setUpcoming(upcoming)
 
         }
 
@@ -48,7 +47,7 @@ export function Movies() {
                         nowPlaying.map(movie => (
                             <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
                                 <div className="">
-                                    <img src={apiImage + movie.backdrop_path} alt={movie.title} />
+                                    <Image image={movie.backdrop_path} title={movie.title} />
                                 </div>
                                 <div className="">
                                     <span className="">{movie.title}</span>

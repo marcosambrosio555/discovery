@@ -1,9 +1,8 @@
-const apiImage = import.meta.env.VITE_API_IMAGE
-
-import { BiImage } from 'react-icons/bi'
 import styles from './css/Card.module.css'
 
 import { Link } from 'react-router-dom'
+import { Image } from './Image'
+import { FakeImage } from './FakeImage'
 
 export function CardPerson({ props, image }) {
 
@@ -14,11 +13,9 @@ export function CardPerson({ props, image }) {
             <div className={styles.cardImage}>
                 {
                     image ? (
-                        <img src={apiImage + image} alt={name} />
+                        <Image image={image} title={title} />
                     ) : (
-                        <div className={styles.imageFake}>
-                            <BiImage />
-                        </div>
+                        <FakeImage />
                     )
                 }
             </div>

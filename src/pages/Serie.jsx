@@ -8,6 +8,8 @@ import styles from './css/SinglePage.module.css'
 import { useEffect, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import { Loading } from '../components/Loading'
+import { getData } from '../services/api'
+import { Image } from '../components/Image'
 
 export function Serie() {
 
@@ -19,11 +21,8 @@ export function Serie() {
     useEffect(() => {
         async function fetchData() {
 
-            const response = await fetch(`${apiUrl}tv/${id}?api_key=${apiKey}&language=pt-BR`)
-            const data = await response.json()
-            console.log(data)
+            const data = await getData(`tv/${id}?api_key=${apiKey}&language=pt-BR`)
             setLoading(false)
-
             setSerie(data)
 
         }
@@ -38,7 +37,7 @@ export function Serie() {
                     <div className="container-sm">
                         <div className={styles.serie}>
                             <div className={styles.cardImage}>
-                                <img src={apiImage + serie.poster_path} alt={serie.title} />
+                                <Image image={serie.poster_path} title={serie.title} />
                             </div>
                             <div className={styles.cardBody}>
 

@@ -1,13 +1,13 @@
 const apiKey = import.meta.env.VITE_API_KEY
 const apiUrl = import.meta.env.VITE_API_URL
-const apiImage = import.meta.env.VITE_API_IMAGE
-
 
 import styles from './css/SinglePage.module.css'
 
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { Loading } from '../components/Loading'
+import { Image } from '../components/Image'
+import { getData } from '../services/api'
 
 export function Movie() {
 
@@ -18,9 +18,7 @@ export function Movie() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(`${apiUrl}movie/${id}?api_key=${apiKey}&language=pt-BR`)
-            const data = await response.json()
-            console.log(data)
+            const data = await getData(`movie/${id}?api_key=${apiKey}&language=pt-BR`)
             setLoading(false)
             setMovie(data)
         }
@@ -44,7 +42,7 @@ export function Movie() {
                     <div className="container-sm">
                         <div className={styles.movie}>
                             <div className={styles.cardImage}>
-                                <img src={apiImage + movie.poster_path} alt={movie.title} />
+                                <Image image={movie.poster_path} title={movie.title} />
                             </div>
                             <div className={styles.cardBody}>
 

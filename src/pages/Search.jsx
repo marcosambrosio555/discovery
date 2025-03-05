@@ -10,6 +10,7 @@ import { CardMovie } from '../components/CardMovie.jsx'
 import { CardSerie } from '../components/CardSerie.jsx'
 import { Loading } from '../components/Loading.jsx'
 import { CardPerson } from '../components/CardPerson.jsx'
+import { getData } from '../services/api.js'
 
 export function Search() {
 
@@ -27,23 +28,17 @@ export function Search() {
         if (!input) return
         setLoading(true)
 
-        const responseMovies = await fetch(`${apiUrl}search/movie?query=${input}&api_key=${apiKey}`)
-        const dataMovies = await responseMovies.json()
-        const responseSeries = await fetch(`${apiUrl}search/tv?query=${input}&api_key=${apiKey}`)
-        const dataSeries = await responseSeries.json()
-        const responsePerson = await fetch(`${apiUrl}search/person?query=${input}&api_key=${apiKey}`)
-        const dataPerson = await responsePerson.json()
+        const movies = await getData(`search/movie?query=${input}&api_key=${apiKey}`)
+        const series = await getData(`${apiUrl}search/tv?query=${input}&api_key=${apiKey}`)
+        const persons = await getData(`${apiUrl}search/person?query=${input}&api_key=${apiKey}`)
 
-        setMovies(dataMovies.results)
-        setSeries(dataSeries.results)
-        setPersons(dataPerson.results)
-
-        console.log(dataMovies)
-        console.log(dataSeries)
-        console.log(dataPerson)
+        setMovies(movies)
+        setSeries(series)
+        setPersons(persons)
 
         setSearchResult(input)
         setLoading(false)
+
     }
 
     return (

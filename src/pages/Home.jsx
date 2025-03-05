@@ -1,5 +1,4 @@
 const apiKey = import.meta.env.VITE_API_KEY
-const apiUrl = import.meta.env.VITE_API_URL
 const apiImage = import.meta.env.VITE_API_IMAGE
 
 import styles from './css/Home.module.css'
@@ -8,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { CardMovie } from '../components/CardMovie'
 import { CardSerie } from '../components/CardSerie'
 import { CardRow } from '../components/CardRow'
+import { getData } from '../services/api'
 
 export function Home() {
 
@@ -20,29 +20,22 @@ export function Home() {
 
         async function fetchData() {
 
-            const responseTrendingMovieDay = await fetch(`${apiUrl}trending/movie/day?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseTrendingMovieWeek = await fetch(`${apiUrl}trending/movie/week?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseTrendingSerieDay = await fetch(`${apiUrl}trending/tv/day?api_key=${apiKey}&language=pt-BR&page=1`)
-            const responseTrendingSerieWeek = await fetch(`${apiUrl}trending/tv/week?api_key=${apiKey}&language=pt-BR&page=1`)
+            const language = "&language=pt-BR&page=1"
 
-            const dataTrendingMovieDay = await responseTrendingMovieDay.json()
-            const dataTrendingMovieWeek = await responseTrendingMovieWeek.json()
-            const dataTrendingSerieDay = await responseTrendingSerieDay.json()
-            const dataTrendingSerieWeek = await responseTrendingSerieWeek.json()
+            const trendingMovieDay = await getData(`trending/movie/day?api_key=${apiKey}${language}`)
+            const trendingMovieWeek = await getData(`trending/movie/week?api_key=${apiKey}${language}`)
+            const trendingSerieDay = await getData(`trending/tv/day?api_key=${apiKey}${language}`)
+            const trendingSerieWeek = await getData(`trending/tv/week?api_key=${apiKey}${language}`)
 
-            setTrendingMovieDay(dataTrendingMovieDay.results)
-            setTrendingMovieWeek(dataTrendingMovieWeek.results)
-            setTrendingSerieDay(dataTrendingSerieDay.results)
-            setTrendingSerieWeek(dataTrendingSerieWeek.results)
-
-            console.log(dataTrendingMovieDay.results)
-            console.log(dataTrendingMovieWeek.results)
-            console.log(dataTrendingSerieDay.results)
-            console.log(dataTrendingSerieWeek.results)
+            setTrendingMovieDay(trendingMovieDay)
+            setTrendingMovieWeek(trendingMovieWeek)
+            setTrendingSerieDay(trendingSerieDay)
+            setTrendingSerieWeek(trendingSerieWeek)
 
         }
 
         fetchData()
+
     }, [])
 
     return (
