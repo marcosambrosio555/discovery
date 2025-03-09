@@ -2,6 +2,7 @@ import styles from './css/Card.module.css'
 
 import { Link } from 'react-router-dom'
 import { Image } from './Image'
+
 import { FakeImage } from './FakeImage'
 
 export function CardPerson({ props, image }) {
@@ -13,7 +14,7 @@ export function CardPerson({ props, image }) {
             <div className={styles.cardImage}>
                 {
                     image ? (
-                        <Image image={image} title={title} />
+                        <Image image={image} title={name} />
                     ) : (
                         <FakeImage />
                     )

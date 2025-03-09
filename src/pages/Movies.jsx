@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { CardMovie } from '../components/CardMovie'
 import { getData } from '../services/api'
 import { Image } from '../components/Image'
+import { CardRow } from '../components/CardRow'
 
 export function Movies() {
 
@@ -45,14 +46,11 @@ export function Movies() {
                 <div className="row">
                     {
                         nowPlaying.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
-                                <div className="">
-                                    <Image image={movie.backdrop_path} title={movie.title} />
-                                </div>
-                                <div className="">
-                                    <span className="">{movie.title}</span>
-                                </div>
-                            </Link>
+                            <CardRow
+                                key={movie.id}
+                                props={movie}
+                                image={movie.backdrop_path}
+                            />
                         ))
                     }
                 </div>
@@ -78,14 +76,11 @@ export function Movies() {
                 <div className="row">
                     {
                         upcoming.map(movie => (
-                            <Link to={`/movie?q=${movie.id}`} key={movie.id} className="">
-                                <div className="">
-                                    <img src={apiImage + movie.backdrop_path} alt={movie.title} />
-                                </div>
-                                <div className="">
-                                    <span className="">{movie.title}</span>
-                                </div>
-                            </Link>
+                            <CardRow
+                                key={movie.id}
+                                props={movie}
+                                image={movie.backdrop_path}
+                            />
                         ))
                     }
                 </div>

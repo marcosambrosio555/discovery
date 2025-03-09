@@ -29,12 +29,16 @@ export function Search() {
         setLoading(true)
 
         const movies = await getData(`search/movie?query=${input}&api_key=${apiKey}`)
-        const series = await getData(`${apiUrl}search/tv?query=${input}&api_key=${apiKey}`)
-        const persons = await getData(`${apiUrl}search/person?query=${input}&api_key=${apiKey}`)
+        const series = await getData(`search/tv?query=${input}&api_key=${apiKey}`)
+        const persons = await getData(`search/person?query=${input}&api_key=${apiKey}`)
 
         setMovies(movies)
         setSeries(series)
         setPersons(persons)
+
+        console.log(movies)
+        console.log(series)
+        console.log(persons)
 
         setSearchResult(input)
         setLoading(false)
