@@ -11,6 +11,7 @@ import { CardMovie } from '../components/CardMovie'
 import { CardSerie } from '../components/CardSerie'
 import { Loading } from '../components/Loading'
 import { BiImage } from 'react-icons/bi'
+import { getData } from "../services/api"
 
 export function Person() {
 
@@ -23,10 +24,14 @@ export function Person() {
     useEffect(() => {
         async function fetchData() {
 
-            const response = await fetch(`${apiUrl}person/${id}?api_key=${apiKey}&language=pt-BR`)
-            const data = await response.json()
+            const language = "&language=pt-BR"
+            const data = await getData(`person/${id}?api_key=${apiKey}${language}`)
+
             const responsePersons = await fetch(`${apiUrl}search/person?query=${data.name}&api_key=${apiKey}`)
             const dataPersons = await responsePersons.json()
+
+            console.log(data)
+            console.log(dataPersons)
 
             const personFinded = dataPersons.results.filter(person => {
                 return person.id === data.id

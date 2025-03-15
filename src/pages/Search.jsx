@@ -32,9 +32,9 @@ export function Search() {
         const series = await getData(`search/tv?query=${input}&api_key=${apiKey}`)
         const persons = await getData(`search/person?query=${input}&api_key=${apiKey}`)
 
-        setMovies(movies)
-        setSeries(series)
-        setPersons(persons)
+        setMovies(movies.results)
+        setSeries(series.results)
+        setPersons(persons.results)
 
         console.log(movies)
         console.log(series)

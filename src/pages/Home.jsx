@@ -27,10 +27,10 @@ export function Home() {
             const trendingSerieDay = await getData(`trending/tv/day?api_key=${apiKey}${language}`)
             const trendingSerieWeek = await getData(`trending/tv/week?api_key=${apiKey}${language}`)
 
-            setTrendingMovieDay(trendingMovieDay)
-            setTrendingMovieWeek(trendingMovieWeek)
-            setTrendingSerieDay(trendingSerieDay)
-            setTrendingSerieWeek(trendingSerieWeek)
+            setTrendingMovieDay(trendingMovieDay.results)
+            setTrendingMovieWeek(trendingMovieWeek.results)
+            setTrendingSerieDay(trendingSerieDay.results)
+            setTrendingSerieWeek(trendingSerieWeek.results)
 
         }
 

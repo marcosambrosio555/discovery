@@ -22,6 +22,7 @@ export function Serie() {
         async function fetchData() {
 
             const data = await getData(`tv/${id}?api_key=${apiKey}&language=pt-BR`)
+            console.log(data)
             setLoading(false)
             setSerie(data)
 

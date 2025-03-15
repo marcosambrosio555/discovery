@@ -28,10 +28,10 @@ export function Movies() {
             const nowPlaying = await getData(`movie/now_playing?api_key=${apiKey}${language}`)
             const upcoming = await getData(`movie/upcoming?api_key=${apiKey}${language}`)
 
-            setPopular(popular)
-            setTopRated(topRated)
-            SetNowPlaying(nowPlaying)
-            setUpcoming(upcoming)
+            setPopular(popular.results)
+            setTopRated(topRated.results)
+            SetNowPlaying(nowPlaying.results)
+            setUpcoming(upcoming.results)
 
         }
 

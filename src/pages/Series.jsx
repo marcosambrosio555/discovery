@@ -24,9 +24,9 @@ export function Series() {
             const topRated = await getData(`tv/top_rated?api_key=${apiKey}${language}`)
             const onTheAir = await getData(`tv/on_the_air?api_key=${apiKey}${language}`)
 
-            setPopular(popular)
-            setTopRated(topRated)
-            setOnTheAir(onTheAir)
+            setPopular(popular.results)
+            setTopRated(topRated.results)
+            setOnTheAir(onTheAir.results)
 
         }
 

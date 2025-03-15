@@ -18,9 +18,16 @@ export function Movie() {
 
     useEffect(() => {
         async function fetchData() {
-            const data = await getData(`movie/${id}?api_key=${apiKey}&language=pt-BR`)
+
+            const language = "&language=pt-BR"
+
+            const data = await getData(`movie/${id}?api_key=${apiKey}${language}`)
+
+            console.log(data)
+
             setLoading(false)
             setMovie(data)
+
         }
         fetchData()
     }, [id])
