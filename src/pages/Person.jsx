@@ -82,15 +82,15 @@ export function Person() {
                                     <span>{person.known_for_department}</span>
                                 </div>
                                 <div className={styles.biography}>
-                                    <span>{person.biography}</span>
+                                    <div>{person.biography}</div>
                                 </div>
                                 <div>
                                     {
                                         personDataSearch.known_for && (
                                             <div>
-                                                <div>Conhecido por :</div>
+                                                <div className={styles.title_known_for}>Conhecido por :</div>
                                                 {
-                                                    <div className={styles.column}>
+                                                    <div className="column">
                                                         {
                                                             personDataSearch.known_for.map(project => (
                                                                 project.media_type === "movie" && (

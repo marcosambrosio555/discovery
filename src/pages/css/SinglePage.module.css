@@ -35,14 +35,38 @@ a {
     font-size: 1.4rem;
 }
 
-.cardBody div>div {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: .8rem;
-}
-
-
-.cardBody .overview {
+.cardBody .overview,
+.cardBody .biography {
     line-height: 2.4rem;
     color: var(--zinc-color-02);
+}
+
+/* .cardBody span:last-child {
+    padding: .2rem .4rem;
+    border-radius: .4rem;
+    font-size: 1.3rem;
+    border: 1px solid #333;
+} */
+
+
+
+
+
+/* Person */
+
+.cardBody .name {
+    font-weight: bold;
+    font-size: 2.4rem;
+}
+
+.title_known_for {
+    margin-block: .8rem 1.6rem;
+}
+
+/* Gender */
+
+.genres div {
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
 }
